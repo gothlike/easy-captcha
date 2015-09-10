@@ -15,6 +15,13 @@ var defaultOptions = {
 
 CAP = module.exports = require('./lib/hcap.js');
 
+CAP.get = function (options) {
+	options = options || defaultOptions;
+	var captcha = CAP(options);
+	options.attempts = options.attempts || 1;
+	return captcha;
+};
+
 CAP.generate = function (options) {	
 	if (!options) options = defaultOptions;
 	var captcha = CAP(options);		
